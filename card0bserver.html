@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Animation Example</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 80px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* MAIN STYLING FOR CARDS */
+      .card {
+        background: white;
+        padding: 30px;
+        margin-bottom: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+        /* INITIAL STATE (before scroll animation) */
+        opacity: 0;
+        transform: translateY(50px);
+
+        /* ANIMATION DURATION */
+        transition:
+          opacity 0.6s ease-out,
+          transform 0.6s ease-out;
+      }
+
+      /* THIS CLASS IS ADDED BY JAVASCRIPT */
+      .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card h2 {
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* Different animations for variety */
+      .card:nth-child(2) {
+        /* Slide from left */
+        transform: translateX(-50px) translateY(0);
+      }
+
+      .card:nth-child(2).visible {
+        transform: translateX(0) translateY(0);
+      }
+
+      .card:nth-child(3) {
+        /* Slide from right */
+        transform: translateX(50px) translateY(0);
+      }
+
+      .card:nth-child(3).visible {
+        transform: translateX(0) translateY(0);
+      }
+
+      .card:nth-child(4) {
+        /* Scale up */
+        transform: scale(0.8);
+      }
+
+      .card:nth-child(4).visible {
+        transform: scale(1);
+      }
+
+      .spacer {
+        height: 300px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Scroll Down to See Animations</h1>
+        <p>Cards will fade in and slide as you scroll</p>
+      </div>
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <h2>Card 1 - Fade & Slide Up</h2>
+        <p>
+          This card fades in and slides up from the bottom. It uses the basic
+          animation of opacity and translateY.
+        </p>
+      </div>
+
+      <div class="spacer">👇 Scroll down...</div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <h2>Card 2 - Slide from Left</h2>
+        <p>
+          This card slides in from the left. Notice how it has a different
+          animation compared to card 1.
+        </p>
+      </div>
+
+      <div class="spacer">👇 Keep scrolling...</div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+        <h2>Card 3 - Slide from Right</h2>
+        <p>
+          This card slides in from the right. Each card can have its own unique
+          animation style.
+        </p>
+      </div>
+
+      <div class="spacer">👇 More content below...</div>
+
+      <!-- CARD 4 -->
+      <div class="card">
+        <h2>Card 4 - Scale Up</h2>
+        <p>
+          This card scales up from small to full size. Try different transform
+          values to create unique effects!
+        </p>
+      </div>
+
+      <div class="spacer">✨ End of Demo</div>
+    </div>
+
+    <script>
+      // Get all cards
+      const cards = document.querySelectorAll(".card");
+
+      // Create an Intersection Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Check if the card is in the viewport
+            if (entry.isIntersecting) {
+              // Add the 'visible' class to trigger CSS animation
+              entry.target.classList.add("visible");
+
+              // Optional: Stop watching after it's visible
+              // observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1, // Trigger when 10% of card is visible
+          rootMargin: "0px 0px -50px 0px", // Start animation 50px before card reaches viewport
+        },
+      );
+
+      // Watch each card
+      cards.forEach((card) => {
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>
