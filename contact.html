@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' stroke='%23000' stroke-width='1.5' fill='none'/%3E%3Ctext x='16' y='21' font-family='Georgia, serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23000'%3EA%3C/text%3E%3C/svg%3E"
+    />
+    <title>Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/contact.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar-parent">
+        <div class="navbar-child page-width">
+          <div class="navbar-link">
+            <a href="Portfolio.html" class="navbar-a">Home</a>
+          </div>
+          <div class="navbar-logo">A</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="contact-me-parent">
+        <div class="contact-me-child page-width">
+          <div class="contact-me-intro">
+            <p class="contact-me-kicker">STAY IN THE KNOW</p>
+            <h1 class="contact-me-header">Contact Us</h1>
+            <div class="contact-me-divider"></div>
+            <p class="contact-me-subcopy">
+              BIG IDEAS. BRIGHT MINDS. REACH<br />
+              OUT AND LET'S SHINE TOGETHER.
+            </p>
+          </div>
+          <form
+            action="https://formspree.io/f/xaqpbrng"
+            method="post"
+            class="contact-form"
+          >
+            <div class="contact-form-grid">
+              <div class="form-field">
+                <label for="name">YOUR NAME</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="form-field">
+                <label for="email">EMAIL ADDRESS</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+
+              <div class="form-field">
+                <label for="company">YOUR COMPANY NAME</label>
+                <input id="company" name="company" type="text" />
+              </div>
+              <div class="form-field">
+                <label for="website">CURRENT WEBSITE</label>
+                <input id="website" name="website" type="url" />
+              </div>
+
+              <div class="form-field">
+                <label for="role">SELECT YOUR ROLE</label>
+                <select id="role" name="role">
+                  <option value="" selected disabled></option>
+                  <option value="owner">Founder / Owner</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="product">Product</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="department">SELECT YOUR DEPARTMENT</label>
+                <select id="department" name="department">
+                  <option value="" selected disabled></option>
+                  <option value="marketing">Marketing</option>
+                  <option value="sales">Sales</option>
+                  <option value="operations">Operations</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="contact-form-secondary">
+              <div class="form-services">
+                <p class="form-section-title">WHAT SERVICES DO YOU NEED?</p>
+                <div class="services-grid">
+                  <label class="checkbox-field">
+                    <input type="checkbox" name="services" value="branding" />
+                    <span>Branding</span>
+                  </label>
+                  <label class="checkbox-field">
+                    <input type="checkbox" name="services" value="ecommerce" />
+                    <span>Ecommerce</span>
+                  </label>
+                  <label class="checkbox-field">
+                    <input
+                      type="checkbox"
+                      name="services"
+                      value="social-media"
+                    />
+                    <span>Social media</span>
+                  </label>
+                  <label class="checkbox-field">
+                    <input type="checkbox" name="services" value="web-design" />
+                    <span>Web Design</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-budget">
+                <label for="budget">SELECT YOUR BUDGET ($)</label>
+                <select id="budget" name="budget" class="budget-select">
+                  <option value="" selected disabled></option>
+                  <option value="under-5k">Under 5,000</option>
+                  <option value="5k-10k">5,000 – 10,000</option>
+                  <option value="10k-25k">10,000 – 25,000</option>
+                  <option value="25k-plus">25,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field form-thoughts">
+              <label for="message">SHARE SOME THOUGHTS...</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <p class="form-legal">
+              This site is protected by reCAPTCHA and the Google Privacy Policy
+              and Terms of Service apply.
+            </p>
+
+            <div class="form-footer">
+              <label class="newsletter-optin">
+                <input type="checkbox" name="newsletter" value="yes" checked />
+                <span>Never miss a beat – Sign up for our Newsletter.</span>
+              </label>
+              <button type="submit" class="submit-btn">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Let's Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a
+                href="https://www.instagram.com/pillowiz_/?hl=en"
+                class="social-link"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ahmed-ali-50b44b378/"
+                class="social-link"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://x.com/AhmedAli60937" class="social-link"
+                >Twitter</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://dribbble.com/ahmedaliminhas1190"
+                class="social-link"
+                >Dribbble</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-title">Get in Touch</h3>
+          <p class="footer-text">
+            Have a project in mind? Let's create something amazing together.
+          </p>
+          <a href="mailto:ahmedaliminhas1190@gmail.com" class="cta-link"
+            >ahmedaliminhas1190@gmail.com</a
+          >
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-credit">Designed & Built by Ali</p>
+        <p class="footer-year">&copy; 2026</p>
+      </div>
+    </footer>
+    <script src="assets/contact.js"></script>
+  </body>
+</html>
