@@ -32,6 +32,18 @@ dropdownLink.forEach((link) => {
   observer.observe(link);
 });
 
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document
+      .querySelectorAll(
+        ".hero-header-text, .hero-body-content, .hero-body-header-content",
+      )
+      .forEach((element) => {
+        element.classList.remove("loading");
+      });
+  }, 2100);
+});
+
 const heroHeaderText = document.querySelectorAll(".hero-header-text");
 const heroBodyContent = document.querySelector(".hero-body-content");
 const heroBodyHeader = document.querySelectorAll(".hero-body-header-content");
@@ -66,3 +78,7 @@ const whatHeaderText = document.querySelector(".what-header-text");
 observer.observe(whatHeaderText);
 const whatHeaderText2 = document.querySelector(".what-header-text-2");
 observer.observe(whatHeaderText2);
+
+/* Project Section */
+const ProjectContainer = document.querySelector(".project-container");
+observer.observe(ProjectContainer);
