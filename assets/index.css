@@ -262,14 +262,14 @@ body {
     display: block;
   }
   .page-width {
-    padding: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
   }
   .dropdown-menu-parent {
     display: block;
     background-color: white;
   }
   .dropdown-menu-child {
-    padding: 15px 10px 15px 10px;
+    padding: 15px 5px 15px 5px;
     position: fixed;
     top: 0px;
     bottom: 0px;
