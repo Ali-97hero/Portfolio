@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     document
       .querySelectorAll(
-        ".hero-header-text, .hero-body-content, .hero-body-header-content",
+        ".hero-header-text, .hero-body-content, .hero-body-header-content, .hero-image-wrapper",
       )
       .forEach((element) => {
         element.classList.remove("loading");
@@ -56,7 +56,8 @@ observer.observe(heroBodyContent);
 heroBodyHeader.forEach((header) => {
   observer.observe(header);
 });
-
+const heroImageWrapper = document.querySelector(".hero-image-wrapper");
+if (heroImageWrapper) observer.observe(heroImageWrapper);
 /* Header */
 const headerParent = document.querySelector(".header-parent");
 observer.observe(headerParent);
@@ -84,9 +85,66 @@ observer.observe(whatHeaderText2);
 const ProjectContainer = document.querySelector(".project-container");
 observer.observe(ProjectContainer);
 
+/* Highlight Section */
+const highlightKicker = document.querySelector(".highlight-kicker");
+const highlightTitle = document.querySelector(".highlight-title");
+const highlightCards = document.querySelectorAll(".highlight-card");
+
+if (highlightKicker) observer.observe(highlightKicker);
+if (highlightTitle) observer.observe(highlightTitle);
+highlightCards.forEach((card) => observer.observe(card));
+
 /* Footer Section */
 const footerContent = document.querySelector(".footer-content");
 const footerBottom = document.querySelector(".footer-bottom");
 
 if (footerContent) observer.observe(footerContent);
 if (footerBottom) observer.observe(footerBottom);
+
+/* Currently Learning Section */
+const learningItems = document.querySelectorAll(".learning-item");
+const statsEyebrows = document.querySelectorAll(".stats-eyebrow");
+
+statsEyebrows.forEach((el, index) => {
+  el.style.transitionDelay = `${index * 0.1}s`;
+  observer.observe(el);
+});
+/* Learning Column */
+learningItems.forEach((item, index) => {
+  item.style.transitionDelay = `${index * 0.12}s`;
+  const learningObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        const bar = entry.target.querySelector(".learning-bar-fill");
+        if (bar) {
+          setTimeout(() => {
+            bar.style.width = bar.dataset.width + "%";
+          }, 100);
+        }
+        learningObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+  learningObserver.observe(item);
+});
+/* Skills Column */
+const skillRows = document.querySelectorAll(".skill-row");
+skillRows.forEach((row, index) => {
+  row.style.transitionDelay = `${index * 0.08}s`;
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  skillObserver.observe(row);
+});
